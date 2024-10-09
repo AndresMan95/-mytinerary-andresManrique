@@ -1,4 +1,3 @@
-// Carousel.jsx
 import { useState, useEffect, useRef } from 'react';
 
 const Carousel = () => {
@@ -63,49 +62,55 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative max-w-4xl mx-auto overflow-hidden bg-black/50 p-4 my-10 rounded-lg">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">{slides[currentSlide].title}</h2>
-
-      {/* Carrusel de imágenes */}
-      <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full flex-shrink-0 flex justify-center items-center space-x-4"
-            style={{ width: '100%' }}
-          >
-            {slide.images.map((image, imgIndex) => (
-              <div key={imgIndex} className="flex flex-col items-center">
-                <img
-                  src={image.src}
-                  alt={image.name}
-                  className="w-48 h-32 object-cover rounded-md sm:w-40 sm:h-28 md:w-48 md:h-32 lg:w-56 lg:h-40 transform transition-transform duration-300 hover:scale-110"
-                />
-                <p className="mt-2 text-sm sm:text-xs md:text-base text-white">{image.name}</p>
-              </div>
-            ))}
-          </div>
-        ))}
+    <>
+      <div className="relative max-w-5xl mx-auto p-6 my-12 bg-black/50 rounded-lg overflow-hidden">
+        <h2 className="text-2xl font-bold text-center mb-8 text-white">{slides[currentSlide].title}</h2>
+  
+        {/* Carrusel de imágenes */}
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="w-full flex-shrink-0 flex justify-center items-center space-x-4 px-6"
+              style={{ width: '100%' }}
+            >
+              {slide.images.map((image, imgIndex) => (
+                <div key={imgIndex} className="flex flex-col items-center space-y-2">
+                  <img
+                    src={image.src}
+                    alt={image.name}
+                    className="w-48 h-32 object-cover rounded-md sm:w-40 sm:h-28 md:w-48 md:h-32 lg:w-56 lg:h-40 transform transition-transform duration-300 hover:scale-110"
+                  />
+                  <p className="text-sm sm:text-xs md:text-base text-white">{image.name}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+  
+        {/* Botones Prev y Next dentro del carrusel */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-200 z-10"
+        >
+          Prev
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-200 z-10"
+        >
+          Next
+        </button>
       </div>
-
-      {/* Botones Prev y Next */}
-      <button
-        onClick={prevSlide}
-        className="absolute -left-8 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-200 z-10"
-      >
-        Prev
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute -right-8 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-200 z-10"
-      >
-        Next
-      </button>
-    </div>
+    </>
   );
+  
+    
+    
+
 };
 
 export default Carousel;
