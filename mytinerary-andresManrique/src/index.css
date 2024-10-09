@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Desenfoque de la imagen de fondo */
+.group .filter {
+    filter: blur(5px); /* Aplicar un leve desenfoque a la imagen de fondo */
+  }
+  
+  /* Cuando el cursor está sobre el componente, la imagen se vuelve nítida */
+  .group:hover .filter {
+    filter: blur(0); /* Eliminar el desenfoque */
+  }
+  
+  /* Capa oscura que se mantiene */
+  .group:hover .bg-black {
+    opacity: 30%; /* Ajusta la opacidad si es necesario */
+  }
+  
+  
+  

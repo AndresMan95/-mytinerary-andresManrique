@@ -7,6 +7,7 @@ function App() {
   return (
     <Router>
       <MainLayout>
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cities" element={<Cities />} />
