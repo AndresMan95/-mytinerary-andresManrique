@@ -1,6 +1,6 @@
 // src/components/CityCards.js
-
 import React from "react";
+import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 
 const CityCards = ({ cities }) => {
   return (
@@ -20,6 +20,14 @@ const CityCards = ({ cities }) => {
             <p><strong>Continent:</strong> {city.continent}</p>
             <p>{city.description}</p>
             <p><strong>Currency:</strong> {city.currency}</p>
+
+            {/* Enlace hacia la página de detalles de la ciudad */}
+            <Link
+              to={`/city/${city._id}`}
+              className="text-blue-500 hover:underline mt-4 block"
+            >
+              Ver itinerarios
+            </Link>
           </div>
         ))
       )}
