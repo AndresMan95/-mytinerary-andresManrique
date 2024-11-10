@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import citiesReducer from './slices/citiesSlice.js';
-import itinerariesReducer from './slices/itinerariesSlice.js';
+import citiesReducer from './slices/citiesSlice';
+import itinerariesReducer from './slices/itinerariesSlice';
 
 const store = configureStore({
-    reducer: {
-        cities: citiesReducer,
-        itineraries: itinerariesReducer,
-    },
+  reducer: {
+    cities: citiesReducer,
+    itineraries: itinerariesReducer,
+  },
 });
 
 export default store;

@@ -5,12 +5,16 @@ import axios from 'axios';
 // Thunk para obtener itinerarios por ciudad
 export const fetchItinerariesByCity = createAsyncThunk(
   'itineraries/fetchItinerariesByCity',
-  async (city_id) => {
-    const response = await axios.get(`/api/itineraries/city/${city_id}`);
-    return response.data;
+  async (city_id, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/itineraries/${city_id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching itineraries:", error);
+      return rejectWithValue(error.message);
+    }
   }
 );
-
 const itinerariesSlice = createSlice({
   name: 'itineraries',
   initialState: {
