@@ -13,7 +13,7 @@ const loginUser = async (email, password) => {
     });
   
     if (!response.ok) {
-      throw new Error("Error al iniciar sesión");
+      throw new Error("Invalid credentials");
     }
   
     return response.json();

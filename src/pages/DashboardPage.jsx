@@ -16,7 +16,7 @@ const DashboardPage = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/api/user', {
+        const response = await fetch('http://localhost:8080/api/auth', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -25,7 +25,7 @@ const DashboardPage = () => {
         setUserData(data.user);
       } catch (error) {
         console.log(error);
-        navigate('/login');
+        navigate('/signin');
       }
     };
 
